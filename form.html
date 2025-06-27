@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>ตารางเรียน</title>
+    <meta charset="UTF-8">
+</head>
+<body background="https://png.pngtree.com/background/20210709/original/pngtree-red-roses-background-picture-image_282868.jpg">
+<form id="myForm">
+  <label>ชื่อ:</label><br>
+  <input type="text" name="name"><br><br>
+
+  <label>ความคิดเห็น:</label><br>
+  <textarea name="comment"></textarea><br><br>
+
+  <button type="submit">ส่งข้อมูล</button>
+</form>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyNiFlBhpcD0--p_g6dUsPBPFhD53V4jR7tLZTUnWZ3mAzJwnscNPJyrbIqV6Wsgh-z/exec';
+  const form = document.getElementById('myForm');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => alert("ส่งข้อมูลสำเร็จ!"))
+      .catch(error => alert("เกิดข้อผิดพลาด"));
+  });
+</script>
+
+</body>
+</html>
+
