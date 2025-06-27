@@ -1,31 +1,69 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>ตารางเรียน</title>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <title>ฟอร์มสำหรับนักเรียน ม.1-2</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 400px; margin: 20px auto; }
+    label { display: block; margin-top: 15px; }
+    input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+    button { margin-top: 15px; padding: 10px; width: 100%; background-color: #007BFF; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #0056b3; }
+    #response { margin-top: 15px; }
+  </style>
 </head>
-<body background="https://png.pngtree.com/background/20210709/original/pngtree-red-roses-background-picture-image_282868.jpg">
-<form id="myForm">
-  <label>ชื่อ:</label><br>
-  <input type="text" name="name"><br><br>
+<body>
+  <h2>ฟอร์มสำหรับนักเรียน ม.1-2</h2>
+  <form id="studentForm">
+    <label>ชื่อ-นามสกุล
+      <input type="text" name="fullname" placeholder="ใส่ชื่อ-นามสกุล" required />
+    </label>
 
-  <label>ความคิดเห็น:</label><br>
-  <textarea name="comment"></textarea><br><br>
+    <label>อายุ
+      <input type="number" name="age" min="12" max="15" placeholder="ใส่อายุ (12-15 ปี)" required />
+    </label>
 
-  <button type="submit">ส่งข้อมูล</button>
-</form>
+    <label>ห้องเรียน
+      <select name="classroom" required>
+        <option value="">-- เลือกห้องเรียน --</option>
+        <option value="ม.1/1">ม.1/1</option>
+        <option value="ม.1/2">ม.1/2</option>
+        <option value="ม.2/1">ม.2/1</option>
+        <option value="ม.2/2">ม.2/2</option>
+      </select>
+    </label>
 
-<script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbyNiFlBhpcD0--p_g6dUsPBPFhD53V4jR7tLZTUnWZ3mAzJwnscNPJyrbIqV6Wsgh-z/exec';
-  const form = document.getElementById('myForm');
+    <label>ความคิดเห็น
+      <textarea name="comment" rows="4" placeholder="ใส่ความคิดเห็นของคุณ" required></textarea>
+    </label>
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => alert("ส่งข้อมูลสำเร็จ!"))
-      .catch(error => alert("เกิดข้อผิดพลาด"));
-  });
-</script>
+    <button type="submit">ส่งข้อมูล</button>
+  </form>
 
+  <p id="response"></p>
+
+  <script>
+    const form = document.getElementById('studentForm');
+    const responseEl = document.getElementById('response');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch('YOUR_WEB_APP_URL_HERE', {
+        method: 'POST',
+        body: new URLSearchParams(formData)
+      })
+      .then(res => res.text())
+      .then(text => {
+        responseEl.textContent = "ส่งข้อมูลสำเร็จ ขอบคุณนะ!";
+        form.reset();
+      })
+      .catch(err => {
+        responseEl.textContent = "เกิดข้อผิดพลาดในการส่งข้อมูล ลองใหม่อีกครั้ง";
+      });
+    });
+  </script>
 </body>
 </html>
-
