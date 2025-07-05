@@ -52,10 +52,11 @@
 
 <script>
 const form = document.getElementById('studentform');
-const resposeEl = document.getElementById('response');
+const responseEl = document.getElementById('response');
+
 form.onsubmit = e =>{
   e.preventDefault();
-fetch('https://script.google.com/macros/s/AKfycbzJt6xWhaIASfVFfXl6EepZ6r593hVGz3EgZkEkc4_sIX4MFplwCSGXmydrGP1W9lPKmw/exec'
+fetch('https://script.google.com/macros/s/AKfycbzJt6xWhaIASfVFfXl6EepZ6r593hVGz3EgZkEkc4_sIX4MFplwCSGXmydrGP1W9lPKmw/exec',
 {
   method: 'POST',
   body: new URLSearchParams(new FormData(form))
