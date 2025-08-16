@@ -29,7 +29,7 @@
             margin: 5px;
             border: none;
             border-radius: 5px;
-            backgroud-color: #66b3ff;
+            background-color: #66b3ff;
             color:white;
             cursor:pointer;}
     
@@ -81,7 +81,7 @@
   <script>
     function checkAnswer(btn,correct)
       {btn.classList.add(correct?'correct':'incorrect');
-       btn.parenElement.querySelectorAll('button').forEach(b=b.disabled=true);}
+       btn.parentElement.querySelectorAll('button').forEach(b=>b.disabled=true);}
   </script>
   </body>
 </html>
