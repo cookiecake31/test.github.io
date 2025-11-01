@@ -6,7 +6,11 @@
       body{ color: orange;
             text-align: center;
             animation: flicker 1.5s infinite alternate;}
-      
+      @keyframes flicker{
+        0% {background-color: black;}
+        50% {background-color: red;}
+        100% {background-color: black;}
+      }
     </style>
   </head>
   <body>
