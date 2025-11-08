@@ -9,14 +9,47 @@
         animation: flicker 1.5s infinite alternate;}
      
         @keyframes flicker
-      {
-        50% {background-color:#FFFFCC;}
+      { 50% {background-color:#FFFFCC;}
         100% {background-color:#FFB6C1;}
       }
 
-      
+      header
+      {
+        background-color: rgba(110, 232, 189, 0.05);
+        padding: 20px;
+        border-radius: 10px;
+      }
+      section
+      {
+        background-color: rgba(54, 214, 228, 0.13);
+        width: 80%
+        margin: 20px auto;
+        text-align: left;
+        border-radius: 15px;
+        color:#2E8B57;
+      }
+      .blink
+      {
+        color: #CD5C5C;
+        font-size: 30px;
+        animation: flash 5s infinite;
+      }
 
-      
+      @keyframes flash
+      {
+        0% 100% {opacity:1;}
+        100% {opacity:0;}
+      }
+      img
+      {
+        border: 5px;
+        border-radius: 15px;
+        width: 400px; height:300px;
+      }
+
+      img:hover
+      {box-shadow: 0 0 20px #FFD700;}
+
     </style>
   </head>
 </html>
