@@ -23,7 +23,24 @@ section{
   background: #eacc55;
   border-radius: 15px;
 }
-
+.snow{
+  position: fixed;
+  top: -10px;
+  color: white;
+  animation: fall linear infinite;
+}
+@keyframes fall{
+  to{transform: translateY(110vh);}
+}
+.bounce{
+  animation: bounce 2s infinite;
+}
+  @keyframes bounce{
+    0%{transeorm: translateY(0);}
+    50%{transeorm: translateY(-15px);}
+    100%{transeorm: translateY(0);}
+  }
+  
 </style>  
   
   </head>
